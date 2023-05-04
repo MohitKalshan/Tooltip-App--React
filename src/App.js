@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React , { useState } from "react";
+import Tooltip from "./component/Tooltip";
 import './App.css';
 
 function App() {
+  const [position, setPosition] = useState("");
+  console.log("this is position: ",position)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <select
+        className="form-select"
+        id="inputGroupSelect01"
+        onChange={(e) => setPosition(e.target.value)}
+      >
+        <option value="top" defaultValue={true}>Top</option>
+        <option value="left">Left</option>
+        <option value="bottom">Bottom</option>
+        <option value="right">Right</option>
+      </select>
+      <Tooltip position={position}/>
     </div>
   );
 }
